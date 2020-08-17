@@ -3,12 +3,20 @@
 
 
 def finder(files, queries):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    table = dict()
+    ans = []
 
-    return result
+    for el in files:
+        if el not in table:
+            table[el] = el.split("/")
+        else:
+            continue
+
+    for key,val in table.items():
+        for el in queries:
+            if el == val[-1]:
+                ans.append(key)
+    return ans
 
 
 if __name__ == "__main__":

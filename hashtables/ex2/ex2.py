@@ -6,9 +6,14 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    table = dict()
+    answer = [None] * length
+    for i in range(length):
+        if tickets[i].source not in table:
+            table[tickets[i].source] = tickets[i].destination
 
-    return route
+    answer[0] = table["NONE"]
+    for i in range(1,length):
+        answer[i] = table[answer[i-1]]
+
+    return answer

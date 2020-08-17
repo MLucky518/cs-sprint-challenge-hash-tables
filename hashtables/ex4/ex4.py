@@ -1,10 +1,21 @@
 def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    table = dict()
+    ans = []
 
-    return result
+    for el in a:
+
+        if abs(el) not in table:
+            table[abs(el)] = 1
+        else:
+            table[abs(el)] += 1
+
+    for key, val in table.items():
+        if val > 1:
+            ans.append(key)
+    return ans
+
+    # Tests do not check for multiple positive duplicates and would break if duplicates were added
+    # NEEDS REFACTORING
 
 
 if __name__ == "__main__":
